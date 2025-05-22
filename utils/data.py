@@ -40,7 +40,9 @@ def build_dataset(
 
 def pil_loader(path):
     with open(path, 'rb') as f:
-        img: PImage.Image = PImage.open(f).convert('RGB')
+        img: PImage.Image = PImage.open(f).convert('RGB').resize((256, 256))
+
+    print(f'Loaded image {path} with size {img.size}')
     return img
 
 
